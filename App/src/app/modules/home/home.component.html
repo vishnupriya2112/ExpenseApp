@@ -1,0 +1,92 @@
+<mat-card>
+    <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+        <mat-card class="income" fxFlex="35" fxLayoutAlign="space-around center">
+            <div fxFlex="30" fxLayoutAlign="space-around center">
+                <button mat-fab color="success">
+                    <mat-icon>trending_up</mat-icon>
+                </button>
+            </div>
+            <div fxFlex="80" fxLayout="column" fxLayoutAlign="center">
+                <h3>Income</h3>
+                <p>{{income}}</p>
+            </div>
+        </mat-card>
+        <mat-card class="expenses" fxFlex="35" fxLayoutAlign="space-around center">
+            <div fxFlex="30" fxLayoutAlign="space-around center">
+                <button mat-fab color="success">
+                    <mat-icon>trending_down</mat-icon>
+                </button>
+            </div>
+            <div fxFlex="80" fxLayout="column" fxLayoutAlign="center">
+                <h3>Expense</h3>
+                <p>{{expense}}</p>
+            </div>
+        </mat-card>
+        <mat-card class="netbalance" fxFlex="35" fxLayoutAlign="space-around center">
+            <div fxFlex="30" fxLayoutAlign="space-around center">
+                <button mat-fab color="success">
+                    <mat-icon>account_balance</mat-icon>
+                </button>
+            </div>
+            <div fxFlex="80" fxLayout="column" fxLayoutAlign="center">
+                <h3>Net Balance</h3>
+                <p>{{totalBudget}}</p>
+            </div>
+        </mat-card>
+        <div class="add-expense">
+            <button class="fixed" mat-fab (click)="onCardClicked()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div>
+        <div fxFlex="100" fxLayoutAlign="space-around center">
+            <mat-tab-group fxFlex="100" mat-align-tabs="start">
+                <mat-tab label="All">
+                    <div *ngIf="budgetItems<=0">
+                        <p>No Item Found</p>
+                    </div>
+                    <app-table-items (delete)="deleteItem($event)" [datasource]="dataSource"
+                        (update)="updateItem($event)">
+                    </app-table-items>
+                </mat-tab>
+                <mat-tab label="Daily">
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                        <div fxFlex="30">
+                            <!-- <mat-calendar (selectedChange)="selectedDate($event)"></mat-calendar> -->
+                            <app-daily-items (selectedDay)=selectedDate($event)></app-daily-items>
+                        </div>
+                        <div fxFlex="70">
+                            <app-budget-item-list [budgetItems]="dailyItems" (delete)="deleteItem($event)"
+                                (update)="updateItem($event)">
+                            </app-budget-item-list>
+
+                        </div>
+                        <div fxFlex="70" *ngIf="dailyItems<=0">
+                            <p>No Item Found</p>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Weekly">
+                    <app-weekly-items (selectedWeek)=selectedWeek($event)></app-weekly-items>
+                    <app-budget-item-list [budgetItems]="weeklyItems" (delete)="deleteItem($event)"
+                        (update)="updateItem($event)">
+                    </app-budget-item-list>
+                    <div *ngIf="weeklyItems<=0">
+                        <p>No Item Found</p>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Monthly">
+                    <app-monthly-items (selectedMonth)="selectedMonth($event)"></app-monthly-items>
+                    <app-budget-item-list [budgetItems]="monthlyItems" (delete)="deleteItem($event)" (update)="updateItem($event)">
+                    </app-budget-item-list>
+                    <div *ngIf="monthlyItems<=0">
+                        <p>No Item Found</p>
+                    </div>
+                    </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,63 @@
+<div class="container" fxLayout="column">
+    <mat-card class="income" fxFlex="30">
+        <div fxFlex="50" fxLayoutAlign="space-around center">
+            <mat-form-field appearance="fill">
+                <mat-label>Select a Category</mat-label>
+                <mat-select (selectionChange)="onChangeCategory($event)" [(ngModel)]="selectedValue">
+                    <mat-option value="all">All Item</mat-option>
+                    <mat-option value="daily">Daily</mat-option>
+                    <mat-option value="weekly">Weekly</mat-option>
+                    <mat-option value="monthly">Monthly</mat-option>
+                    <mat-option value="compare-date">Compare Dates</mat-option>
+                    <!-- <mat-option value="compare-week">Compare Weeks</mat-option>
+                    <mat-option value="compare-month">Compare Month</mat-option> -->
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxFlex="50">
+            <div *ngIf="selectedValue==='daily'" class="row">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date"
+                        (dateChange)="selectedDate($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div *ngIf="selectedValue==='weekly'" class="row">
+                <app-weekly-items (selectedWeek)=selectedWeek($event)></app-weekly-items>
+            </div>
+            <div *ngIf="selectedValue==='monthly'" class="row">
+                <app-monthly-items (selectedMonth)="selectedMonth($event)"></app-monthly-items>
+            </div>
+            <div *ngIf="selectedValue==='compare-date'" class="row">
+                <app-weekly-items (selectedWeek)=compareDates($event)></app-weekly-items>
+            </div>
+            <!-- <div *ngIf="selectedValue==='compare-week'" class="row">
+
+            </div>
+            <div *ngIf="selectedValue==='compare-month'" class="row">
+
+            </div> -->
+        </div>
+    </mat-card>
+
+    <mat-card class="income" fxFlex="40" fxLayoutAlign="space-around center">
+        <div *ngIf="(income_amount.length>0)" fxFlex="50" fxLayout="column" fxLayoutAlign="space-around center">
+            <h1>Income</h1>
+            <app-pie-chart [data]="income_amount" [item]="income_title" [color]="color"></app-pie-chart>
+        </div>
+        <div *ngIf="(expense_amount.length>0)" fxFlex="50" fxLayout="column" fxLayoutAlign="space-around center">
+            <h1>Expense</h1>
+            <app-pie-chart [data]="expense_amount" [item]="expense_title" [color]="color"></app-pie-chart>
+        </div>
+        <div *ngIf="!(expense_amount.length>0)&&!(income_amount.length>0)" fxFlex="50" fxLayout="column"
+            fxLayoutAlign="space-around center">
+            <h2>No Item Found</h2>
+        </div>
+    </mat-card>
+
+    <!-- <mat-card class="income" fxFlex="40" fxLayoutAlign="space-around center">
+        <app-bar-chart></app-bar-chart>
+    </mat-card> -->
+    
+</div>

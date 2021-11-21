@@ -1,0 +1,51 @@
+<mat-card class="card">
+    <div class="container">
+        <form [formGroup]="contactForm" (submit)="onSubmit()" class="form">
+            <div class="full-width" appearance="outline" style="text-align: center;">
+                <h1>Update User Details</h1>
+            </div>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" id="name" name="name" required formControlName="name" autocomplete="on">
+                <mat-error *ngIf="contactForm.controls.name.touched && contactForm.controls.name.invalid">
+                    <span *ngIf="contactForm.controls.name.errors.required">This field is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label> DOB</mat-label>
+                <input matInput [matDatepicker]="picker" id="dob" name="dob" formControlName="dob" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="contactForm.controls.dob.touched && contactForm.controls.dob.invalid">
+                    <span *ngIf="contactForm.controls.dob.errors.required">This field is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="full-width" appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input [disabled]="true" matInput type="text" id="email" name="email" formControlName="email" required>
+                <mat-error *ngIf="contactForm.controls.email.touched && contactForm.controls.email.invalid">
+                    <span *ngIf="contactForm.controls.email.errors.required">This field is mandatory.</span>
+                    <span *ngIf="contactForm.controls.email.errors.pattern">This field is invalid.</span>
+                </mat-error>
+            </mat-form-field> -->
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Gender</mat-label>
+                <mat-select name="gender" id="gender" required formControlName="gender">
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                </mat-select>
+                <mat-error *ngIf="contactForm.controls.gender.touched && contactForm.controls.gender.invalid">
+                    <span *ngIf="contactForm.controls.gender.errors.required">This field is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+            <div mat-dialog-actions align="center">
+                <button mat-raised-button color="primary" [disabled]="!contactForm.valid" type="submit">Update</button>|
+                <button mat-raised-button color="warn" [routerLink]="['../profile']">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</mat-card>

@@ -1,0 +1,17 @@
+.budget-item {
+  transition: background-color 0.2s ease-out;
+}
+
+.expense {
+  p,
+  h3 {
+    color: red;
+  }
+}
+
+.income {
+  p,
+  h3 {
+    color: green;
+  }
+}

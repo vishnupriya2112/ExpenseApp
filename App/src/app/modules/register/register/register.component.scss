@@ -1,0 +1,71 @@
+.logo img {
+  width: 100px;
+}
+.login-page {
+  background-color: #b3d1f2;
+  background-size: cover;
+}
+.card {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  height: 100%;
+  padding: 10px 40px;
+  line-height: 3.5rem;
+}
+
+.form {
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+.full-width h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.full-width i {
+  font-size: 3rem;
+  color: #00a82d;
+}
+button {
+  margin: 0 auto;
+  width: 100%;
+}
+button img {
+  margin-right: 5px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+.error {
+  color: rgb(255, 0, 0);
+}
+
+.new {
+  margin: 20px 0;
+}
+.new a {
+  text-decoration: none;
+  color: #19a7fa;
+}
+.login-btn button {
+  background-color: #19a7fa;
+  color: white;
+}
+
+@media only screen and (max-width: 709px) {
+  .card {
+    width: auto;
+    margin: 0;
+    line-height: 1rem;
+  }
+}

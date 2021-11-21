@@ -1,0 +1,56 @@
+<div class="mat-elevation-z8">
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+</div>
+<mat-sidenav-container>
+    
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+            <div class="full-width title" appearance="outline">
+                <div class="logo">
+                    <div>
+                        <i class="fas fa-biohazard"></i>
+                    </div>
+                    <div>
+                        <h1 class="org">Noteme</h1>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="menu-items">
+                <button mat-button class="menu-button" [routerLink]="['./home']">
+                    <mat-icon>dashboard</mat-icon>
+                    <span>Dashboard</span>
+                </button>
+
+                <button mat-button class="menu-button" [routerLink]="['./statistics']">
+                    <mat-icon>bar_chart</mat-icon>
+                    <span>Statistics</span>
+                </button>
+            
+                <button mat-button class="menu-button" [routerLink]="['./profile']">
+                    <mat-icon>person</mat-icon>
+                    <span>My Account</span>
+                </button>
+            
+                
+            
+            
+                <button mat-button class="menu-button logout" (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

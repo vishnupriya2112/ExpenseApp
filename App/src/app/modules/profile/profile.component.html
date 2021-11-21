@@ -1,0 +1,136 @@
+<!-- <div *ngIf="userData">
+    <mat-table [dataSource]="userData">
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row;columns:displayedColumns"></mat-row>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let row"> row.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="dob">
+            <th mat-header-cell *matHeaderCellDef> DOB </th>
+            <td mat-cell *matCellDef="let row"> {{row.dob}} </td>
+        </ng-container>
+        
+        
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef> Gender </th>
+            <td mat-cell *matCellDef="let row">{{row.gender}} </td>
+        </ng-container>
+    </mat-table>
+</div> -->
+<div class="table-container">
+    <div class="container">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <td>{{userData?.name}}</td>
+                </tr>
+                <tr>
+                    <th>DOB</th>
+                    <td>{{userData?.dob|date:'dd-MMM-YYYY'}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{userData?.email}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{userData?.gender}}</td>
+                </tr>
+            </table>
+            
+    </div>
+    <div>
+        <button mat-raised-button color="success"  class="menu-button" (click)="gotoProfile()">
+            <mat-icon>edit</mat-icon>
+            <span>Edit Profile</span>
+        </button>
+        <button mat-raised-button color="warn" class="menu-button" (click)="deleteUser()">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Account</span>
+        </button>
+    </div>
+</div>
+
+
+
+<!-- <table mat-table  class="mat-elevation-z8">
+
+    <ng-container>
+        <tr mat-header-row>
+            <th mat-header-cell> Name </th>
+            <td mat-cell> {{userData?.name}} </td>
+        </tr>
+    </ng-container> -->
+    
+    <!-- <ng-container matColumnDef="name">
+        
+    </ng-container>
+
+    
+    <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef> DOB </th>
+        <td mat-cell *matCellDef="let element"> {{userData?.dob}} </td>
+    </ng-container>
+
+   
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{userData?.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element">{{userData?.gender}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+<!-- </table> -->
+
+
+
+
+
+
+<!-- <mat-tab-group color="primary" backgroundColor="primary">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">person</mat-icon>
+                Name
+            </ng-template>
+            <mat-card>{{userData?.name}}</mat-card>
+        
+        </mat-tab>
+    
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">email</mat-icon>
+               Email
+            </ng-template>
+            <mat-card>{{userData?.email}}</mat-card>
+        
+        </mat-tab>
+    
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">date_range</mat-icon>
+                Date Of Birth
+            </ng-template>
+            <mat-card>{{userData?.dob}}</mat-card>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">people</mat-icon>
+                Gender
+            </ng-template>
+            <mat-card>{{userData?.gender}}</mat-card>
+            
+        </mat-tab>
+</mat-tab-group> -->

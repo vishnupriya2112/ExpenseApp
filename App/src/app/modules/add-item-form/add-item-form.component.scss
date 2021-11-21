@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  height: 100%;
+  padding: 40px;
+  line-height: 3.5rem;
+}
+button {
+  margin: 0 auto;
+  width: 100%;
+}
+.full-width {
+  width: 100%;
+}
+.full-width h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.full-width i {
+  font-size: 3rem;
+  color: #00a82d;
+}
+.transaction button {
+  width: auto;
+}
+.positive {
+  background-color: #5cb85c;
+  color: #ffffff;
+}
+
+.negative {
+  background-color: #d9534f;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 709px) {
+  .card {
+    display: block;
+    padding: 0;
+    margin: 0;
+    height: auto;
+  }
+}

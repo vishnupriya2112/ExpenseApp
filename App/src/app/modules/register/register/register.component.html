@@ -1,0 +1,147 @@
+<div class="login-page">
+    <mat-card class="card">
+        <div class="container">
+        <form #contactForm="ngForm" (ngSubmit)="contactForm.form.valid && onSubmit(contactForm)" 
+                class="form" novalidate [appMatchPassword]="['password', 'cpassword']">
+            <!-- <div class="full-width" appearance="outline">
+                <div class="logo">
+                    <img src="https://www.seekpng.com/png/full/245-2458892_cost-effective-personal-loan-icon-png.png">
+                </div>
+                <h1>Noteme</h1>
+                <h3>Remember everything important.</h3>
+            </div> -->
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput 
+                    type="text" 
+                    id="name"
+                    name="name" 
+                    required 
+                    #name="ngModel" 
+                    [(ngModel)]="contact.name"
+                    autocomplete="on"
+                >
+                <mat-error *ngIf="!name?.valid && (name?.dirty || name?.touched)" class="error">
+                    <span *ngIf="name.errors.required">
+                        This field is mandatory.
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            
+    
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>DOB</mat-label>
+                <input matInput 
+                    [matDatepicker]="picker" 
+                    id="dob"
+                    name="dob" 
+                    required 
+                    #dob="ngModel" 
+                    [(ngModel)]="contact.dob"
+                >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="!dob?.valid && (dob?.dirty || dob?.touched)" class="error">
+                    <span *ngIf="dob.errors.required">
+                        This field is mandatory.
+                    </span>
+                </mat-error>
+                
+            </mat-form-field>
+            
+    
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput 
+                    type="email" 
+                    id="email"
+                    name="email" 
+                    required 
+                    email 
+                    #email="ngModel" 
+                    [(ngModel)]="contact.email"
+                    
+                >
+                <mat-error *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                    <span *ngIf="email.errors.required">
+                        This field is mandatory.
+                    </span>
+                    <span *ngIf="email.errors.email">
+                        Invalid Email Address
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Gender</mat-label>
+                <mat-select
+                    name="gender" 
+                    id="gender"
+                    required 
+                    #gender="ngModel" 
+                    [(ngModel)]="contact.gender" 
+                >
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                </mat-select>
+                <mat-error class="error" *ngIf="(gender.touched || contactForm.submitted) && gender.errors?.required">
+                    <span>This field is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput 
+                    type="password" 
+                    id="password"
+                    name="password" 
+                    required 
+                    #password="ngModel" 
+                    [(ngModel)]="contact.password"
+                    appPasswordPattern
+                >
+                <mat-error class="error" *ngIf="(password.touched || contactForm.submitted) && password.errors?.required">
+                    <span>This field is mandatory.</span>
+                </mat-error>
+                <mat-error class="error" *ngIf="password.touched && password.errors?.invalidPassword">
+                    <span>Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                        letter and 1 number</span>
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput 
+                    type="password" 
+                    id="cpassword"
+                    name="cpassword" 
+                    required 
+                    #cpassword="ngModel" 
+                    [(ngModel)]="contact.cpassword"
+                    
+                >
+                <mat-error class="error" *ngIf="(cpassword.touched || contactForm.submitted) && cpassword.errors?.required">
+                    <span>This field is mandatory.</span>
+                </mat-error>
+                <mat-error class="error" *ngIf="cpassword.touched && cpassword.errors?.passwordMismatch">
+                    <span>Password Mismatch</span>
+                </mat-error>
+            </mat-form-field>
+            <div mat-dialog-actions class="login-btn">
+                <button mat-raised-button  type="submit">Continue</button>
+            </div>
+            <div class="new" >
+                <h4>Already have an account ?<br><a [routerLink]="['/login']">Sign In</a></h4>
+            </div>
+        </form>
+        <!-- <div>
+            <button mat-stroked-button (click)="signUpWithGoogle()"><img src="https://www.evernote.com/redesign/OpenID/img/GGL_logo_googleg_18.png">Continue
+                with Google</button>
+        </div> -->
+    </div>
+    </mat-card>
+</div>
+
+
+
+

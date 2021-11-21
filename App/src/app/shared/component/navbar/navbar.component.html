@@ -1,0 +1,51 @@
+<div class="container">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="title">
+        <!-- <img src="https://www.seekpng.com/png/full/245-2458892_cost-effective-personal-loan-icon-png.png"> -->
+        <i class="fas fa-biohazard"></i>
+      </div>
+      <div style="font-size:large;">
+        <h1 class="org">Noteme</h1>
+      </div>
+      <div fxShow="true" fxHide.lt-md>
+        <div class="menu-item">
+          
+          <button mat-button>Why Noteme</button>
+          <button mat-button>Products</button>
+          <button mat-button>Plans & Pricing</button>
+          <button mat-button>Resources</button>
+          <button mat-button>Support</button>
+        </div>
+      </div>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <div class="menu-item">
+          <button mat-button routerLink="login">Login</button>
+          <button mat-button routerLink="register">Register</button>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav style="width: 200px;">
+    <mat-nav-list>
+      <a (click)="sidenav.toggle()" href="" mat-list-item>
+        <mat-icon>close</mat-icon>
+      </a>
+      <a mat-list-item>Why Noteme</a>
+      <a mat-list-item>Products</a>
+      <a mat-list-item>Plans & Pricing</a>
+      <a mat-list-item>Resources</a>
+      <a mat-list-item>Support</a>
+      <a mat-list-item routerLink="login">Login</a>
+      <a mat-list-item routerLink="register">Register</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</div>
+

@@ -1,0 +1,24 @@
+
+<mat-card class="budget-item"
+          [ngClass]="{ 'income': item.amount >=0, 'expense': item.amount < 0 }"
+          fxLayoutAlign="space-between center"
+>
+    <div class="description" fxFlex="20" fxLayoutAlign="space-between center">
+      <p>{{ item.description }}</p>
+    </div>
+    <div class="amount" fxFlex="20" fxLayout="column" fxLayoutAlign="center">
+      <p>{{ item.amount }}</p>
+    </div>
+    <div class="added_date" fxFlex="20" fxLayout="column" fxLayoutAlign="center" fxHide.lt-md>
+      <p>{{ item.added_date|date:'dd-MMM-YYYY' }}</p>
+    </div>
+    <div class="delete" fxFlex="20" fxLayout="column" fxLayoutAlign="space-between flex-end">
+      <mat-icon (click)="onCardClick()">edit</mat-icon>
+    </div>
+    <div class="delete" fxFlex="20" fxLayout="column" fxLayoutAlign="space-between flex-end">
+      <mat-icon (click)="onXButtonClick()">cancel</mat-icon>
+    </div>
+    
+</mat-card>
+
+

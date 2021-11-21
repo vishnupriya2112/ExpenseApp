@@ -1,0 +1,17 @@
+.income-column {
+  h1 {
+    color: green;
+  }
+}
+
+.expenses-column {
+  h1 {
+    color: red;
+  }
+}
+
+app-budget-item-card {
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+}

@@ -1,0 +1,47 @@
+<div class="login-page">
+    <mat-card class="card">
+        <div class="container">
+            <form [formGroup]="loginForm" (submit)="submit()" class="full-width form" appearance="outline">
+                <div class="full-width" appearance="outline">
+                    <!-- <div class="logo">
+                        <img src="https://www.seekpng.com/png/full/245-2458892_cost-effective-personal-loan-icon-png.png">
+                        <i class="fas fa-biohazard"></i>
+                    </div>
+                    <h1 class="org">Noteme</h1> -->
+                    <h2 class="quote">Remember <br>everything important.</h2>
+                </div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email Address</mat-label>
+    
+                    <input matInput formControlName="email" type="text" required>
+                    <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+                        <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+                    </mat-error>
+                   
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Password
+                    </mat-label>
+                    <input matInput formControlName="password" type="password" required>
+                    <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                        <span *ngIf="loginForm.controls.password.errors.required">This field is mandatory.</span>
+                    </mat-error>
+                    
+                </mat-form-field>
+                <div mat-dialog-actions class="login-btn" >
+                    <button mat-raised-button  type="submit">Log In</button>
+                </div>
+                <div class="new" >
+                    <h4>Don't have an account?<br><a [routerLink]="['/register']">Create account</a></h4>
+                </div>
+                
+            </form>
+            <div>
+                <button mat-stroked-button (click)="signInWithGoogle()"><img src="https://www.evernote.com/redesign/OpenID/img/GGL_logo_googleg_18.png">Continue
+                    with Google</button>
+            </div>
+        </div>
+        
+    </mat-card>
+</div>

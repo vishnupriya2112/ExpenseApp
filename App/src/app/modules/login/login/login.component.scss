@@ -1,0 +1,79 @@
+.logo img {
+  width: 100px;
+}
+.login-page {
+  background: linear-gradient(to bottom right, #edfef2, #e4fce2);
+  background-size: cover;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+.org {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Berkshire Swash", cursive;
+}
+.quote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Berkshire Swash", cursive;
+  color: #00a82d;
+}
+.card {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  padding: 40px;
+  line-height: 3.5rem;
+}
+.form {
+  max-width: 300px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+.full-width h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.full-width i {
+  font-size: 3rem;
+  color: #00a82d;
+}
+
+button {
+  margin: 0 auto;
+  width: 100%;
+}
+button img {
+  margin-right: 5px;
+}
+.new {
+  margin: 20px 0;
+}
+.new a {
+  text-decoration: none;
+  color: #00a82d;
+}
+.login-btn button {
+  background-color: #00a82d;
+  color: white;
+}
+
+@media only screen and (max-width: 709px) {
+  .card {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+  }
+  .login-page {
+    display: block;
+  }
+}

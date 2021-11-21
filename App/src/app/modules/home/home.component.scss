@@ -1,0 +1,57 @@
+.container {
+  height: auto;
+  padding: 10px 40px;
+}
+.container div {
+  height: 80px;
+  text-align: center;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+  background-color: #770da8;
+  z-index: 1;
+}
+
+mat-card h3,
+mat-card p {
+  font-weight: bold;
+}
+
+.income {
+  background: linear-gradient(to right, #2c9c2c, #84ee84);
+  //background-color: #5cb85c;
+}
+.expenses {
+  background: linear-gradient(to right, #d32d27, #e78f8c);
+  //background-color: #d9534f;
+}
+.netbalance {
+  background: linear-gradient(to right, #024783, #699fce);
+  //background-color: #0275d8;
+}
+.income,
+.expenses,
+.netbalance {
+  text-align: right;
+}
+.income,
+.expenses,
+.netbalance,
+.add-expense {
+  color: white;
+}
+.income,
+.expenses,
+.netbalance,
+.add-expense {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+}
+.calender-content {
+  width: 100%;
+}
